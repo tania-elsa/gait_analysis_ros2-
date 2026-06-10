@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>gait_analysis_description</name>
+  <version>0.0.0</version>
+<description>Leg robot URDF, meshes, and visualization package</description>
+
+  <maintainer email="stania@todo.todo">stania</maintainer>
+  <license>BSD-3-Clause</license>
+
+
+  <!-- Runtime dependencies for robot visualization -->
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+  <!-- Launch system -->
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <!-- For future gait/sensor integration -->
+  <exec_depend>sensor_msgs</exec_depend>
+
+  <!-- Testing (default ROS2 Python template) -->
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

@@ -1,0 +1,132 @@
+<?xml version="1.0" ?>
+<robot name="final" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find final_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find final_description)/urdf/final.ros2control" />
+<xacro:include filename="$(find final_description)/urdf/final.gazebo" />
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.06478293279614274 -3.6773124150689534e-05 0.7999999999999997" rpy="0 0 0"/>
+    <mass value="3.6178191304847207"/>
+    <inertia ixx="0.003782" iyy="0.013301" izz="0.016842" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/base_link.stl"
+            scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/base_link.stl"
+            scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="thigh_1">
+  <inertial>
+    <origin xyz="-4.313298135200094e-05 0.00012892085790282948 -0.17785038092591976" rpy="0 0 0"/>
+    <mass value="21.059202209968067"/>
+    <inertia ixx="0.24173" iyy="0.250667" izz="0.026196" ixy="0.0" iyz="0.000198" ixz="-6.7e-05"/>
+  </inertial>
+
+  <visual>
+    <origin xyz="0.064783 3.7e-05 -0.79" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/thigh_1.stl"
+            scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+
+  <collision>
+    <origin xyz="0.064783 3.7e-05 -0.79" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/thigh_1.stl"
+            scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shank_1">
+  <inertial>
+    <origin xyz="-5.006720599932957e-05 -9.872869304342486e-05 -0.16472223341362088" rpy="0 0 0"/>
+    <mass value="12.53378316515205"/>
+    <inertia ixx="0.124904" iyy="0.12701" izz="0.009536" ixy="-0.0" iyz="-8.7e-05" ixz="-4.4e-05"/>
+  </inertial>
+
+  <visual>
+    <origin xyz="0.064877 -0.000242 -0.41" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/shank_1.stl"
+            scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+
+  <collision>
+    <origin xyz="0.064877 -0.000242 -0.41" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/shank_1.stl"
+            scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="foot_1">
+  <inertial>
+    <origin xyz="0.08499984566123078 -2.966504852647214e-07 -0.027357090464364024" rpy="0 0 0"/>
+    <mass value="6.120672533177604"/>
+    <inertia ixx="0.003875" iyy="0.025171" izz="0.026805" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+
+  <visual>
+    <origin xyz="0.064989 -2.2e-05 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/foot_1.stl"
+            scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+
+  <collision>
+    <origin xyz="0.064989 -2.2e-05 -0.05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find final_description)/meshes/foot_1.stl"
+            scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="hip_link" type="revolute">
+  <origin xyz="-0.064783 -3.7e-05 0.79" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="thigh_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit upper="1.396263" lower="-1.047198" effort="100" velocity="100"/>
+</joint>
+
+<joint name="knee_link" type="revolute">
+  <origin xyz="-9.4e-05 0.000279 -0.38" rpy="0 0 0"/>
+  <parent link="thigh_1"/>
+  <child link="shank_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit upper="1.48353" lower="-1.745329" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Revolute 4" type="revolute">
+  <origin xyz="-0.000112 -0.00022 -0.36" rpy="0 0 0"/>
+  <parent link="shank_1"/>
+  <child link="foot_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit upper="1.745329" lower="-1.745329" effort="100" velocity="100"/>
+</joint>
+
+</robot>
