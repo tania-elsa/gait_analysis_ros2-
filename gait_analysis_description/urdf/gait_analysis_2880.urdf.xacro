@@ -1,10 +1,10 @@
 <?xml version="1.0" ?>
 <robot name="final" xmlns:xacro="http://www.ros.org/wiki/xacro">
-
+<!--
 <xacro:include filename="$(find final_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find final_description)/urdf/final.ros2control" />
 <xacro:include filename="$(find final_description)/urdf/final.gazebo" />
-
+-->
 <link name="base_link">
   <inertial>
     <origin xyz="-0.06478293279614274 -3.6773124150689534e-05 0.7999999999999997" rpy="0 0 0"/>
@@ -12,19 +12,18 @@
     <inertia ixx="0.003782" iyy="0.013301" izz="0.016842" ixy="0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
 
-  <visual>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find final_description)/meshes/base_link.stl"
-            scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-
+<visual>
+  <geometry>
+    <box size="1 1 1"/>
+  </geometry>
+  <material name="blue">
+    <color rgba="0 0 1 1"/>
+  </material>
+</visual>
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find final_description)/meshes/base_link.stl"
+      <mesh filename="package://gait_analysis_description/meshes/base_link.stl"
             scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
@@ -40,7 +39,7 @@
   <visual>
     <origin xyz="0.064783 3.7e-05 -0.79" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find final_description)/meshes/thigh_1.stl"
+      <mesh filename="package://gait_analysis_description/meshes/thigh_1_1.stl"
             scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
@@ -49,7 +48,7 @@
   <collision>
     <origin xyz="0.064783 3.7e-05 -0.79" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find final_description)/meshes/thigh_1.stl"
+      <mesh filename="package://gait_analysis_description/meshes/thigh_1_1.stl"
             scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
@@ -65,7 +64,7 @@
   <visual>
     <origin xyz="0.064877 -0.000242 -0.41" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find final_description)/meshes/shank_1.stl"
+      <mesh filename="package://gait_analysis_description/meshes/shank_1.stl"
             scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
@@ -74,7 +73,7 @@
   <collision>
     <origin xyz="0.064877 -0.000242 -0.41" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find final_description)/meshes/shank_1.stl"
+      <mesh filename="package://gait_analysis_description/meshes/shank_1.stl"
             scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
@@ -90,7 +89,7 @@
   <visual>
     <origin xyz="0.064989 -2.2e-05 -0.05" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find final_description)/meshes/foot_1.stl"
+      <mesh filename="package://gait_analysis_description/meshes/ankle_1.stl"
             scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
@@ -99,7 +98,7 @@
   <collision>
     <origin xyz="0.064989 -2.2e-05 -0.05" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="file://$(find final_description)/meshes/foot_1.stl"
+      <mesh filename="package://gait_analysis_description/meshes/ankle_1.stl"
             scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
