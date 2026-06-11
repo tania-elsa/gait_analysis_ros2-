@@ -1,30 +1,26 @@
 <?xml version="1.0" ?>
 <robot name="final" xmlns:xacro="http://www.ros.org/wiki/xacro">
-<!--
-<xacro:include filename="$(find final_description)/urdf/materials.xacro" />
-<xacro:include filename="$(find final_description)/urdf/final.ros2control" />
-<xacro:include filename="$(find final_description)/urdf/final.gazebo" />
--->
+
+<xacro:include filename="$(find gait_analysis_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find gait_analysis_description)/urdf/final.ros2control" />
+<xacro:include filename="$(find gait_analysis_description)/urdf/final.gazebo" />
 <link name="base_link">
   <inertial>
     <origin xyz="-0.06478293279614274 -3.6773124150689534e-05 0.7999999999999997" rpy="0 0 0"/>
     <mass value="3.6178191304847207"/>
     <inertia ixx="0.003782" iyy="0.013301" izz="0.016842" ixy="0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
-
-<visual>
-  <geometry>
-    <box size="1 1 1"/>
-  </geometry>
-  <material name="blue">
-    <color rgba="0 0 1 1"/>
-  </material>
-</visual>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find gait_analysis_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://gait_analysis_description/meshes/base_link.stl"
-            scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find gait_analysis_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -35,21 +31,17 @@
     <mass value="21.059202209968067"/>
     <inertia ixx="0.24173" iyy="0.250667" izz="0.026196" ixy="0.0" iyz="0.000198" ixz="-6.7e-05"/>
   </inertial>
-
   <visual>
     <origin xyz="0.064783 3.7e-05 -0.79" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://gait_analysis_description/meshes/thigh_1_1.stl"
-            scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find gait_analysis_description)/meshes/thigh_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
-
   <collision>
     <origin xyz="0.064783 3.7e-05 -0.79" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://gait_analysis_description/meshes/thigh_1_1.stl"
-            scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find gait_analysis_description)/meshes/thigh_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -60,21 +52,17 @@
     <mass value="12.53378316515205"/>
     <inertia ixx="0.124904" iyy="0.12701" izz="0.009536" ixy="-0.0" iyz="-8.7e-05" ixz="-4.4e-05"/>
   </inertial>
-
   <visual>
     <origin xyz="0.064877 -0.000242 -0.41" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://gait_analysis_description/meshes/shank_1.stl"
-            scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find gait_analysis_description)/meshes/shank_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
-
   <collision>
     <origin xyz="0.064877 -0.000242 -0.41" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://gait_analysis_description/meshes/shank_1.stl"
-            scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find gait_analysis_description)/meshes/shank_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -85,21 +73,17 @@
     <mass value="6.120672533177604"/>
     <inertia ixx="0.003875" iyy="0.025171" izz="0.026805" ixy="-0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
-
   <visual>
     <origin xyz="0.064989 -2.2e-05 -0.05" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://gait_analysis_description/meshes/ankle_1.stl"
-            scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find gait_analysis_description)/meshes/foot_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
-
   <collision>
     <origin xyz="0.064989 -2.2e-05 -0.05" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://gait_analysis_description/meshes/ankle_1.stl"
-            scale="0.001 0.001 0.001"/>
+      <mesh filename="file://$(find gait_analysis_description)/meshes/foot_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
